@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CREATIVEVERSE | Video Editor, Web Designer, Visual Creator</title>
+  <meta name="description" content="CREATIVEVERSE is a freelance creative studio for video editing, website development and logo design.">
+  <meta name="theme-color" content="#07060b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader" role="status" aria-live="polite">
+    <span class="loader-mark">CREATIVEVERSE</span>
+    <span class="loader-bar"><i></i></span>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <a href="#top" class="brand">CREATIVE<b>VERSE</b></a>
+    <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+    <nav id="navLinks" class="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <h1 class="hero-title" aria-label="I make digital things hit different.">
+          <span class="line"><span>I MAKE</span></span>
+          <span class="line"><span>DIGITAL</span></span>
+          <span class="line"><span>THINGS HIT</span></span>
+          <span class="line grad"><span>DIFFERENT.</span></span>
+        </h1>
+        <p class="hero-sub">Video Editor · Web Designer · Visual Creator</p>
+        <div class="cta-row">
+          <a href="#work" class="btn btn-primary">Explore My Work</a>
+          <a href="#contact" class="btn btn-glass">Let's Talk</a>
+        </div>
+      </div>
+
+      <div class="stage" id="stage" aria-hidden="true">
+        <canvas id="heroCanvas"></canvas>
+        <!-- Shown when WebGL is unavailable or still loading -->
+        <div class="fallback" id="stageFallback">
+          <div class="orb-head"><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured project -->
+    <section class="section" id="work">
+      <div class="section-head" data-reveal>
+        <h2>Featured project: NOVA</h2>
+        <p>A fictional brand campaign for a night-runner sneaker label. It shows how I connect identity, web and motion into one story.</p>
+      </div>
+
+      <div class="nova">
+        <article class="panel nova-logo" data-reveal>
+          <h3>The logo</h3>
+          <div class="logo-stage">
+            <svg viewBox="0 0 200 200" role="img" aria-label="NOVA logo: a split star inside a ring">
+              <defs>
+                <linearGradient id="gN" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#8b3dff"/><stop offset=".6" stop-color="#ff5a1f"/><stop offset="1" stop-color="#c6ff3d"/>
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="82" fill="none" stroke="url(#gN)" stroke-width="10"/>
+              <path d="M100 38 L116 84 L162 100 L116 116 L100 162 L84 116 L38 100 L84 84 Z" fill="url(#gN)"/>
+            </svg>
+            <span class="wordmark">NOVA</span>
+          </div>
+        </article>
+
+        <article class="panel nova-web" data-reveal>
+          <h3>The landing page</h3>
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span>nova-run.example</span></div>
+            <div class="browser-body">
+              <p class="mini-kicker">Spring drop</p>
+              <p class="mini-title">Run past midnight.</p>
+              <span class="mini-btn">Shop NOVA</span>
+              <div class="mini-shoe" aria-hidden="true"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel nova-video" data-reveal>
+          <h3>The promo film</h3>
+          <div class="video-box" id="videoBox">
+            <video id="novaVideo" playsinline controls preload="none" hidden></video>
+            <div class="reel" id="reelPlaceholder" aria-hidden="true"><span></span><span></span><span></span></div>
+            <button id="playBtn" class="play-btn" type="button" aria-label="Play NOVA promo video">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            </button>
+          </div>
+          <p class="video-note" id="videoNote">Placeholder reel. Add your own video in script.js.</p>
+        </article>
+
+        <article class="panel nova-concept" data-reveal>
+          <h3>The concept</h3>
+          <p>NOVA is built around one idea: a star that only shines after dark. The logo splits like a flare, the website glows against a black canvas, and the film cuts to the rhythm of footsteps. Every piece uses the same three colours so the brand feels like one world.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="section-head" data-reveal>
+        <h2>What I make</h2>
+        <p>Three services, one creative standard.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card card-video" data-tilt data-reveal>
+          <div class="card-visual" aria-hidden="true">
+            <div class="timeline"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <h3>Video Editing</h3>
+          <p>Reels, promos and short films cut for rhythm, with colour grading and sound that keep people watching.</p>
+        </article>
+
+        <article class="card card-web" data-tilt data-reveal>
+          <div class="card-visual" aria-hidden="true">
+            <div class="code-lines"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <h3>Website Development</h3>
+          <p>Fast, responsive sites that work on any phone and are simple for you to update after launch.</p>
+        </article>
+
+        <article class="card card-logo" data-tilt data-reveal>
+          <div class="card-visual" aria-hidden="true">
+            <div class="shapes"><i></i><i></i><i></i></div>
+          </div>
+          <h3>Logo Design</h3>
+          <p>Marks and colour systems that stay sharp from a favicon to a billboard.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="section-head" data-reveal>
+        <h2>About me</h2>
+      </div>
+      <!-- EDIT THIS TEXT: write your own introduction -->
+      <div class="about-copy" data-reveal>
+        <p>I'm a freelance creator who loves turning ideas into things people feel. Video taught me how to tell a story in seconds. Web design taught me how to make that story interactive. Branding ties it all together so it stays recognisable everywhere it appears.</p>
+        <p>I work with small brands, creators and startups who want a bold look without a bloated process.</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="contact-box" data-reveal>
+        <h2>Have a project in mind?</h2>
+        <p>Tell me what you're making and I'll reply with ideas and a clear price.</p>
+        <a href="mailto:your.email@example.com" id="emailBtn" class="btn btn-primary btn-big">Email me</a>
+        <ul class="socials" id="socials"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> CREATIVEVERSE</span>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <p style="position:fixed;bottom:0;left:0;right:0;padding:12px;background:#ff5a1f;color:#000;text-align:center">
+      JavaScript is off. Animations and the 3D hero are disabled, but all content is still readable.
+    </p>
+  </noscript>
+
+  <!-- Three.js loads from script.js only when WebGL is available -->
+  <script src="script.js" defer></script>
+</body>
+</html>
